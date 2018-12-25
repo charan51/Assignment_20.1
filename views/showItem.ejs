@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Item</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+
+    <!-- FontAwesome JS-->
+    <script defer src="https://use.fontawesome.com/releases/v5.1.1/js/all.js" integrity="sha384-BtvRZcyfv4r0x/phJt9Y9HhnN5ur1Z+kZbKVgzVBAlQZX4jvAuImlIz+bG7TS00a"
+        crossorigin="anonymous"></script>
+
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card text-center">
+            <div class="card-header">
+                <a class="nav-link" href="/">
+                    <- Back</a> </div> <div class="card-body">
+                        <h5 class="card-title">
+                            <%= item.title %>
+                        </h5>
+                        <p class="card-text">
+                            <%= item.description %>
+                        </p>
+                        <a href="/edit/<%= item.id %>" class="btn btn-info">Edit</a>
+                        <a style="margin-left: 10px"href="/delete/<%= item.id %>" class="btn btn-danger">Delete</a>
+            </div>
+            <div class="card-footer text-muted">
+                <% if(item.completed) { %> <span class="badge badge-success">Completed</span>
+                <% } else { %> <span class="badge badge-danger">Not Completed</span>
+                <% } %>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+
+</html>

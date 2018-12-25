@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TodoList</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
+
+    <!-- FontAwesome JS-->
+    <script defer src="https://use.fontawesome.com/releases/v5.1.1/js/all.js" integrity="sha384-BtvRZcyfv4r0x/phJt9Y9HhnN5ur1Z+kZbKVgzVBAlQZX4jvAuImlIz+bG7TS00a"
+        crossorigin="anonymous"></script>
+
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <ul class="list-group">
+            <% for (var i = 0; i < todoList.length; i++) { %>
+
+            <a href="<%= todoList[i].id %>" class="list-group-item list-group-item-action active">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">
+                        <%= todoList[i].title %>
+                    </h5>
+                    <small>
+                        <% if (todoList[i].completed) { %> Done
+                        <% } else { %> Not done
+                        <%}  %></small>
+                </div>
+                <p class="mb-1">
+                    <%= todoList[i].description %>
+                </p>
+                <% for (var j=0; j < todoList[i].tags.length; j++ ) { %> <small class="badge badge-secondary">
+                    <%= todoList[i].tags[j] %></small>
+                <% } %>
+            </a>
+
+            <% } %>
+        </ul>
+
+        <div>
+            <a href="/new" class="btn btn-info btn-lg btn-block">Add list</a>
+        </div>
+    </div>
+</body>
+
+</html>
